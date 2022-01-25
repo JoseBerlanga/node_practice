@@ -1,25 +1,37 @@
-const muro = {
+/**
+ * Construir un muro
+ * 
+ * - Construir
+ * - Aplanar
+ * - Pintar
+ */
+
+ const muro = {
     construido: false,
     aplanado: false,
     pintado: false
-}
-
-function construir (unMuro) {
-    unMuro.construido = true
-    return unMuro
-}
-
-function aplanar (unMuroContruido) {
-    unMuroContruido.aplanado = true
-    return unMuroContruido
-}
-
-function pintar (unMuroAplanado) {
+  }
+  
+  function construir (unMuro, unaFuncion) {
+    setTimeout(() => {
+      unMuro.construido = true
+      unaFuncion(null, unMuro)
+    }, 2000)
+  }
+  
+  function aplanar (unMuroConstruido) {
+    unMuroConstruido.aplanado = true
+    return unMuroConstruido
+  }
+  
+  function pintar (unMuroAplanado) {
     unMuroAplanado.pintado = true
     return unMuroAplanado
-}
-const muroConstruido = construir(muro)
-const muroAplanado = aplanar(muroConstruido)
-const muroPintado = pintar(muroAplanado)
-
-console.log(('muroAplanado: ', muroPintado));
+  }
+  
+  construir({ ...muro }, (error, muroConstruido) => {
+    console.log('muro construido', muroConstruido)
+    console.log('error: ', error)
+  
+    pintar(muroConstruido)
+  })
