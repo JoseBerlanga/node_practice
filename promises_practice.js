@@ -1,4 +1,4 @@
-// fs.writeFile - fs.appendFIle - fs.unlink - 
+// fs.writeFile - fs.appendFIle - fs.unlink - fs.mkdir - fs.rename
 
 // EJERCICIO TERMINADO
 
