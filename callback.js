@@ -20,18 +20,23 @@
   }
   
   function aplanar (unMuroConstruido) {
-    unMuroConstruido.aplanado = true
-    return unMuroConstruido
+    setTimeout(() => {
+      unMuroConstruido = true
+      unaFuncion(null, unMuroConstruido)
+    }, 2000)
   }
   
   function pintar (unMuroAplanado) {
-    unMuroAplanado.pintado = true
-    return unMuroAplanado
+    setTimeout(() => {
+      unMuroAplanado = true
+      unaFuncion(null, unMuroAplanado)
+    }, 2000)
   }
   
   construir({ ...muro }, (error, muroConstruido) => {
-    console.log('muro construido', muroConstruido)
-    console.log('error: ', error)
-  
-    pintar(muroConstruido)
+    aplanar(muroConstruido, (error, unMuroAplanado) => {
+      pintar(unMuroAplanado, (error, unMuroPintado) => {
+        console.log('muro listo: ', unMuroPintado) 
+      })
+    })
   })

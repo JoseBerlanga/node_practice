@@ -10,7 +10,8 @@ const fs = require ('fs')
 function result(error) {
     if (!error) {
         console.log('El archivo fue escito exitosamente')
-    } else
+        return
+    } 
     console.log(`Error: ${error}`)
 }
 
